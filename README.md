@@ -10,5 +10,11 @@ pip install -r requirements.txt
 ```
 3. Setup textblob
 ```
-python -m python -m textblob.download_corpora
+python -m textblob.download_corpora
+```
+
+## Run
+
+```
+python bot.py
 ```
