@@ -67,12 +67,12 @@ def check_mentions(api, keywords, since_id):
         if tweet.in_reply_to_status_id is not None:
             continue
         if any(keyword in tweet.text.lower() for keyword in keywords):
-            logger.info(f"Answering to {tweet.user.name} at {tweet.id}")
+            logger.info(f"Answering to {tweet.user.screen_name} at {tweet.id}")
 
             sentiment = get_tweet_sentiment(tweet.text)
 
             api.update_status(
-                status="Hey @%s, %s" % (tweet.user.name, response(sentiment)),
+                status="Hey @%s, %s" % (tweet.user.screen_name, response(sentiment)),
                 in_reply_to_status_id=tweet.id,
                 auto_populate_reply_metadata=True
             )
